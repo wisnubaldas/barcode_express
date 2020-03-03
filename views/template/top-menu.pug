@@ -1,0 +1,51 @@
+// begin #header
+#header.header.navbar-default
+  // begin navbar-header
+  .navbar-header
+    a.navbar-brand(href='index.html')
+      span.navbar-logo
+        i.ion-ios-cloud
+      b Color
+      |  Admin
+    button.navbar-toggle(type='button', data-click='sidebar-toggled')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+  // end navbar-header
+  // begin header-nav
+  ul.navbar-nav.navbar-right
+    li
+      form.navbar-form
+        .form-group
+          input.form-control(type='text', placeholder='Enter keyword')
+          button.btn.btn-search(type='submit')
+            i.ion-ios-search-strong
+    li.dropdown
+      a.dropdown-toggle.icon(href='javascript:;', data-toggle='dropdown')
+        i.ion-ios-bell
+        span.label 5
+      ul.dropdown-menu.media-list.dropdown-menu-right
+        li.dropdown-header NOTIFICATIONS (5)
+        li.media
+          a(href='javascript:;')
+            .media-left
+              i.fa.fa-bug.media-object.bg-silver-darker
+            .media-body
+              h6.media-heading
+                | Server Error Reports 
+                i.fa.fa-exclamation-circle.text-danger
+              .text-muted.f-s-11 3 minutes ago
+        |  ...
+        li.dropdown-footer.text-center
+          a(href='javascript:;') View more
+    li.dropdown.navbar-user
+      a.dropdown-toggle(href='javascript:;', data-toggle='dropdown')
+        span.user-image.online
+          img(src='../assets/img/user/user-13.jpg', alt='')
+        span.d-none.d-md-inline Adam Schwartz
+        b.caret
+      .dropdown-menu.dropdown-menu-right
+        a.dropdown-item(href='javascript:;') Edit Profile
+        |  ...
+  // end header navigation right
+// end #header

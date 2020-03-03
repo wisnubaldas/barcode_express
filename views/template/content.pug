@@ -1,0 +1,32 @@
+// begin #content
+#content.content
+// begin breadcrumb
+ol.breadcrumb.pull-right
+    li.breadcrumb-item
+    a(href='javascript:;') Home
+    li.breadcrumb-item
+    a(href='javascript:;') Page Options
+    li.breadcrumb-item.active Blank Page
+// end breadcrumb
+// begin page-header
+h1.page-header
+    | Blank Page 
+    small header small text goes here...
+// end page-header
+// begin panel
+.panel.panel-inverse
+    .panel-heading
+    .panel-heading-btn
+        a.btn.btn-xs.btn-icon.btn-circle.btn-default(href='javascript:;', data-click='panel-expand')
+        i.fa.fa-expand
+        a.btn.btn-xs.btn-icon.btn-circle.btn-success(href='javascript:;', data-click='panel-reload')
+        i.fa.fa-redo
+        a.btn.btn-xs.btn-icon.btn-circle.btn-warning(href='javascript:;', data-click='panel-collapse')
+        i.fa.fa-minus
+        a.btn.btn-xs.btn-icon.btn-circle.btn-danger(href='javascript:;', data-click='panel-remove')
+        i.fa.fa-times
+    h4.panel-title Panel Title here
+    .panel-body
+    | Panel Content Here
+// end panel
+// end #content

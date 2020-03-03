@@ -1,0 +1,61 @@
+extends ../template/layout
+block css
+ link(href='/plugins/dropzone/min/dropzone.min.css', rel='stylesheet')
+
+block content
+ #content.content
+  // begin breadcrumb
+  ol.breadcrumb.pull-right
+   li.breadcrumb-item
+    a(href='javascript:;') Home
+   li.breadcrumb-item.active #{title}
+  // end breadcrumb
+  // begin page-header
+  h1.page-header
+   | #{title} 
+   small #{title_body}
+  // end page-header
+  // begin row
+  .row
+   // begin col-10
+   .col-md-10
+    // begin panel
+    .panel.panel-inverse(data-sortable-id='form-dropzone-1')
+      .panel-heading
+        .panel-heading-btn
+          a.btn.btn-xs.btn-icon.btn-circle.btn-default(href='javascript:;', data-click='panel-expand')
+            i.fa.fa-expand
+          a.btn.btn-xs.btn-icon.btn-circle.btn-success(href='javascript:;', data-click='panel-reload')
+            i.fa.fa-redo
+          a.btn.btn-xs.btn-icon.btn-circle.btn-warning(href='javascript:;', data-click='panel-collapse')
+            i.fa.fa-minus
+          a.btn.btn-xs.btn-icon.btn-circle.btn-danger(href='javascript:;', data-click='panel-remove')
+            i.fa.fa-times
+        h4.panel-title Dropzone
+      .panel-body.text-inverse
+        #dropzone
+          form#demo-upload.dropzone.needsclick(action='/upload')
+            .dz-message.needsclick
+              | Drop files 
+              b here
+              |  or 
+              b click
+              |  to upload.
+              br
+              span.dz-note.needsclick
+                | (This is just a demo dropzone. Selected files are 
+                strong not
+                |  actually uploaded.)
+      .hljs-wrapper
+        pre.
+    // end panel
+    // end col-10
+  // end row
+
+
+block js
+ script(src='/plugins/dropzone/min/dropzone.min.js')
+ script.
+     $(document).ready(function() {
+       App.init();
+     });

@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+   meta(charset='utf-8')
+   title Color Admin | #{title}
+   meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no', name='viewport')
+   meta(content='', name='description')
+   meta(content='', name='author')
+   // ================== BEGIN BASE CSS STYLE ==================
+   link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700', rel='stylesheet')
+   link(href='/plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
+   link(href='/plugins/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet')
+   link(href='/plugins/font-awesome/5.0/css/fontawesome-all.min.css', rel='stylesheet')
+   link(href='/plugins/ionicons/css/ionicons.min.css', rel='stylesheet')
+   link(href='/plugins/animate/animate.min.css', rel='stylesheet')
+   link(href='/css/apple/style.min.css', rel='stylesheet')
+   link(href='/css/apple/style-responsive.min.css', rel='stylesheet')
+   link#theme(href='/css/apple/theme/default.css', rel='stylesheet')
+   // ================== END BASE CSS STYLE ==================
+   // +++++++++++++++++++ BEGIN PAGE LEVEL STYLE ++++++++++++++++
+   block css
+   // ================== BEGIN BASE JS ==================
+   script(src='/plugins/pace/pace.min.js')
+   script(src='/reload/reload.js')
+   // ================== END BASE JS ==================
+
+  body
+   // begin #page-loader
+   #page-loader.fade.show
+    span.spinner
+   // end #page-loader
+   // begin #page-container
+   #page-container.page-container.fade.page-sidebar-fixed.page-header-fixed
+    include header
+    include sidebar
+    block content
+    include theme-panel
+    // begin scroll to top btn
+    a.btn.btn-icon.btn-circle.btn-success.btn-scroll-to-top.fade(href='javascript:;', data-click='scroll-top')
+     i.fa.fa-angle-up
+    // end scroll to top btn 
+   // end #page-container
+   // ================== BEGIN BASE JS ==================
+   script(src='/plugins/jquery/jquery-3.2.1.min.js')
+   script(src='/plugins/jquery-ui/jquery-ui.min.js')
+   script(src='/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js')
+   //if lt IE 9
+     script(src='/crossbrowserjs/html5shiv.js')
+     script(src='/crossbrowserjs/respond.min.js')
+     script(src='/crossbrowserjs/excanvas.min.js')
+   script(src='/plugins/slimscroll/jquery.slimscroll.min.js')
+   script(src='/plugins/js-cookie/js.cookie.js')
+   script(src='/js/theme/apple.min.js')
+   script(src='/js/apps.min.js')
+   // ================== END BASE JS ==================
+   // ================== BEGIN PAGE LEVEL JS ================== 
+   block js
+   // ================== END PAGE LEVEL JS ==================

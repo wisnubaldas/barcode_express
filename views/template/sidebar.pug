@@ -1,0 +1,408 @@
+// begin #sidebar
+
+#sidebar.sidebar
+  // begin sidebar scrollbar
+  div(data-scrollbar='true', data-height='100%')
+    // begin sidebar user
+    ul.nav
+      li.nav-profile
+        a(href='javascript:;', data-toggle='nav-profile')
+          .cover.with-shadow
+          .image
+            img(src='/img/user/user-13.jpg', alt='')
+          .info
+            b.caret
+            | Sean Ngu
+            small Front end developer
+      li
+        ul.nav.nav-profile
+          li
+            a(href='javascript:;')
+              i.ion-ios-cog-outline
+              |  Settings
+          li
+            a(href='javascript:;')
+              i.ion-ios-compose-outline
+              |  Send Feedback
+          li
+            a(href='javascript:;')
+              i.ion-ios-help-outline
+              |  Helps
+    // end sidebar user
+    // begin sidebar nav
+    ul.nav
+     li.nav-header Tes Menu
+     each v in x
+      if v.sub_menu
+       li.has-sub
+        a(href= v.link)
+         b.caret
+         - cls = {class:v.icon}
+         i&attributes(cls)
+         span= v.name
+        ul.sub-menu
+         each s in v.sub_menu
+          li
+           a(href= s.link)= s.name
+      else 
+       li.has-sub
+        a(href= v.link)
+         - cls = {class:v.icon};
+         i&attributes(cls)
+         span= v.name
+     li
+      a.sidebar-minify-btn(href='javascript:;', data-click='sidebar-minify')
+       i.ion-ios-arrow-left
+.sidebar-bg
+    //- ul.nav
+      li.nav-header Navigation
+      li.has-sub.active
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-pulse-strong
+          span Dashboard
+        ul.sub-menu
+          li.active
+            a(href='/') Dashboard v1
+          li
+            a(href='index_v2.html') Dashboard v2
+      li.has-sub
+        a(href='javascript:;')
+          span.badge.pull-right 10
+          i.ion-ios-email.bg-blue
+          span Email
+        ul.sub-menu
+          li
+            a(href='email_inbox.html') Inbox
+          li
+            a(href='email_compose.html') Compose
+          li
+            a(href='email_detail.html') Detail
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-color-filter-outline.bg-purple
+          span
+            | UI Elements 
+            span.label.label-theme.m-l-5 NEW
+        ul.sub-menu
+          li
+            a(href='ui_general.html') General
+          li
+            a(href='ui_typography.html') Typography
+          li
+            a(href='ui_tabs_accordions.html') Tabs & Accordions
+          li
+            a(href='ui_unlimited_tabs.html') Unlimited Nav Tabs
+          li
+            a(href='ui_modal_notification.html')
+              | Modal & Notification 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+          li
+            a(href='ui_widget_boxes.html') Widget Boxes
+          li
+            a(href='ui_media_object.html') Media Object
+          li
+            a(href='ui_buttons.html') Buttons
+          li
+            a(href='ui_icons.html') Icons
+          li
+            a(href='ui_simple_line_icons.html') Simple Line Icons
+          li
+            a(href='ui_ionicons.html') Ionicons
+          li
+            a(href='ui_tree.html') Tree View
+          li
+            a(href='ui_language_bar_icon.html') Language Bar & Icon
+          li
+            a(href='ui_social_buttons.html') Social Buttons
+          li
+            a(href='ui_tour.html') Intro JS
+      li
+        a(href='bootstrap_4.html')
+          .icon-img
+            img(src='/img/logo/logo-bs4.png', alt='')
+          span
+            | Bootstrap 4 
+            span.label.label-theme.m-l-5 NEW
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-briefcase-outline.bg-gradient-purple
+          span
+            | Form Stuff 
+            span.label.label-theme.m-l-5 NEW
+        ul.sub-menu
+          li
+            a(href='form_elements.html')
+              | Form Elements 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+          li
+            a(href='form_plugins.html')
+              | Form Plugins 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+          li
+            a(href='form_slider_switcher.html') Form Slider + Switcher
+          li
+            a(href='form_validation.html') Form Validation
+          li
+            a(href='form_wizards.html') Wizards
+          li
+            a(href='form_wizards_validation.html') Wizards + Validation
+          li
+            a(href='form_wysiwyg.html') WYSIWYG
+          li
+            a(href='form_editable.html') X-Editable
+          li
+            a(href='form_multiple_upload.html') Multiple File Upload
+          li
+            a(href='form_summernote.html') Summernote
+          li
+            a(href='form_dropzone.html') Dropzone
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-grid-view-outline.bg-green
+          span Tables
+        ul.sub-menu
+          li
+            a(href='table_basic.html') Basic Tables
+          li.has-sub
+            a(href='javascript:;')
+              b.caret
+              |  Managed Tables
+            ul.sub-menu
+              li
+                a(href='table_manage.html') Default
+              li
+                a(href='table_manage_autofill.html') Autofill
+              li
+                a(href='table_manage_buttons.html') Buttons
+              li
+                a(href='table_manage_colreorder.html') ColReorder
+              li
+                a(href='table_manage_fixed_columns.html') Fixed Column
+              li
+                a(href='table_manage_fixed_header.html') Fixed Header
+              li
+                a(href='table_manage_keytable.html') KeyTable
+              li
+                a(href='table_manage_responsive.html') Responsive
+              li
+                a(href='table_manage_rowreorder.html') RowReorder
+              li
+                a(href='table_manage_scroller.html') Scroller
+              li
+                a(href='table_manage_select.html') Select
+              li
+                a(href='table_manage_combine.html') Extension Combination
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-infinite-outline.bg-gradient-aqua
+          span Front End
+        ul.sub-menu
+          li
+            a(href='../../frontend/one-page-parallax/index.html', target='_blank') One Page Parallax
+          li
+            a(href='../../frontend/blog/index.html', target='_blank') Blog
+          li
+            a(href='../../frontend/forum/index.html', target='_blank') Forum
+          li
+            a(href='../../frontend/e-commerce/index.html', target='_blank') E-Commerce
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-compose-outline.bg-gradient-blue
+          span Email Template
+        ul.sub-menu
+          li
+            a(href='email_system.html') System Template
+          li
+            a(href='email_newsletter.html') Newsletter Template
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-stats-bars.bg-gradient-orange
+          span Chart
+        ul.sub-menu
+          li
+            a(href='chart-flot.html') Flot Chart
+          li
+            a(href='chart-morris.html') Morris Chart
+          li
+            a(href='chart-js.html') Chart JS
+          li
+            a(href='chart-d3.html') d3 Chart
+      li
+        a(href='calendar.html')
+          i.ion-ios-calendar-outline.bg-pink
+          span Calendar
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-location.bg-pink
+          span Map
+        ul.sub-menu
+          li
+            a(href='map_vector.html') Vector Map
+          li
+            a(href='map_google.html') Google Map
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-albums-outline
+          span Gallery
+        ul.sub-menu
+          li
+            a(href='gallery.html') Gallery v1
+          li
+            a(href='gallery_v2.html') Gallery v2
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-gear-outline
+          span Page Options
+        ul.sub-menu
+          li
+            a(href='page_blank.html') Blank Page
+          li
+            a(href='page_with_footer.html') Page with Footer
+          li
+            a(href='page_without_sidebar.html') Page without Sidebar
+          li
+            a(href='page_with_right_sidebar.html') Page with Right Sidebar
+          li
+            a(href='page_with_minified_sidebar.html') Page with Minified Sidebar
+          li
+            a(href='page_with_two_sidebar.html') Page with Two Sidebar
+          li
+            a(href='page_with_line_icons.html') Page with Line Icons
+          li
+            a(href='page_with_fontawesome.html') Page with FontAwesome
+          li
+            a(href='page_full_height.html') Full Height Content
+          li
+            a(href='page_with_wide_sidebar.html') Page with Wide Sidebar
+          li
+            a(href='page_with_light_sidebar.html') Page with Light Sidebar
+          li
+            a(href='page_with_mega_menu.html') Page with Mega Menu
+          li
+            a(href='page_with_top_menu.html') Page with Top Menu
+          li
+            a(href='page_with_boxed_layout.html') Page with Boxed Layout
+          li
+            a(href='page_with_mixed_menu.html') Page with Mixed Menu
+          li
+            a(href='page_boxed_layout_with_mixed_menu.html') Boxed Layout with Mixed Menu
+          li
+            a(href='page_with_transparent_sidebar.html') Page with Transparent Sidebar
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-heart-outline
+          span Extra
+        ul.sub-menu
+          li
+            a(href='extra_timeline.html') Timeline
+          li
+            a(href='extra_coming_soon.html') Coming Soon Page
+          li
+            a(href='extra_search_results.html') Search Results
+          li
+            a(href='extra_invoice.html') Invoice
+          li
+            a(href='extra_404_error.html') 404 Error Page
+          li
+            a(href='extra_profile.html') Profile Page
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-locked-outline
+          span Login & Register
+        ul.sub-menu
+          li
+            a(href='login.html') Login
+          li
+            a(href='login_v2.html') Login v2
+          li
+            a(href='login_v3.html') Login v3
+          li
+            a(href='register_v3.html') Register v3
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-flower-outline
+          span
+            | Version 
+            span.label.label-theme.m-l-5 NEW
+        ul.sub-menu
+          li
+            a(href='../template_html/index.html') HTML
+          li
+            a(href='../template_ajax/index.html') AJAX
+          li
+            a(href='../template_angularjs/index.html') ANGULAR JS
+          li
+            a(href='../template_angularjs5/index.html')
+              | ANGULAR JS 5 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+          li
+            a(href='../template_laravel/index.html')
+              | LARAVEL 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+          li
+            a(href='../template_material/index.html') MATERIAL DESIGN
+          li
+            a(href='javascript:;') APPLE DESIGN
+          li
+            a(href='../template_transparent/index.html')
+              | TRANSPARENT DESIGN 
+              i.fa.fa-paper-plane.text-theme.m-l-5
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-medkit-outline
+          span Helper
+        ul.sub-menu
+          li
+            a(href='helper_css.html') Predefined CSS Classes
+      li.has-sub
+        a(href='javascript:;')
+          b.caret
+          i.ion-ios-list
+          span Menu Level
+        ul.sub-menu
+          li.has-sub
+            a(href='javascript:;')
+              b.caret
+              | 						            Menu 1.1
+            ul.sub-menu
+              li.has-sub
+                a(href='javascript:;')
+                  b.caret
+                  | 										    Menu 2.1
+                ul.sub-menu
+                  li
+                    a(href='javascript:;') Menu 3.1
+                  li
+                    a(href='javascript:;') Menu 3.2
+              li
+                a(href='javascript:;') Menu 2.2
+              li
+                a(href='javascript:;') Menu 2.3
+          li
+            a(href='javascript:;') Menu 1.2
+          li
+            a(href='javascript:;') Menu 1.3
+      // begin sidebar minify button
+      li
+        a.sidebar-minify-btn(href='javascript:;', data-click='sidebar-minify')
+          i.ion-ios-arrow-left
+          span Collapse
+      // end sidebar minify button
+      // end sidebar nav
+      // end sidebar scrollbar
+
+// end #sidebar

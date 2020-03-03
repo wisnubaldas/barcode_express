@@ -1,0 +1,37 @@
+extends ../template/layout
+block css
+ link(href='/plugins/jquery-jvectormap/jquery-jvectormap.css', rel='stylesheet')
+ link(href='/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css', rel='stylesheet')
+ link(href='/plugins/gritter/css/jquery.gritter.css', rel='stylesheet')
+
+block content
+ #content.content
+  // begin breadcrumb
+  ol.breadcrumb.pull-right
+   li.breadcrumb-item
+    a(href='javascript:;') Home
+   li.breadcrumb-item.active #{title}
+  // end breadcrumb
+  // begin page-header
+  h1.page-header
+   | #{title} 
+   small #{title_body}
+  // end page-header
+  .row
+
+block js
+ script(src='/plugins/gritter/js/jquery.gritter.js')
+ script(src='/plugins/flot/jquery.flot.min.js')
+ script(src='/plugins/flot/jquery.flot.time.min.js')
+ script(src='/plugins/flot/jquery.flot.resize.min.js')
+ script(src='/plugins/flot/jquery.flot.pie.min.js')
+ script(src='/plugins/sparkline/jquery.sparkline.js')
+ script(src='/plugins/jquery-jvectormap/jquery-jvectormap.min.js')
+ script(src='/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js')
+ script(src='/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')
+ script(src='/js/demo/dashboard.min.js')
+ script.
+     $(document).ready(function() {
+      App.init();
+      Dashboard.init();
+     });
