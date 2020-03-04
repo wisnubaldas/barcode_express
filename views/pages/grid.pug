@@ -1,0 +1,46 @@
+extends ../template/layout
+block css
+ link(href='/plugins/DataTables/media/css/dataTables.bootstrap.min.css', rel='stylesheet')
+ link(href='/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css', rel='stylesheet')
+
+block content
+ #content.content
+  // begin breadcrumb
+  ol.breadcrumb.pull-right
+   li.breadcrumb-item
+    a(href='javascript:;') Home
+   li.breadcrumb-item.active #{title}
+  // end breadcrumb
+  // begin page-header
+  h1.page-header
+   | #{title} 
+   small #{title_body}
+  // end page-header
+  // begin row
+  .row
+     table#data-table-responsive.table.table-striped.table-bordered
+       thead
+         tr
+           th(width='1%')
+           th.text-nowrap Barcode
+           th.text-nowrap Date
+           th.text-nowrap Status
+       tbody
+        each el in data
+         tr.odd.gradeX
+           td.f-s-600.text-inverse(width='1%') #{el.id}
+           td #{el.code}
+           td #{el.date}
+           td #{el.flag}
+//-    each el in data
+//-     p= el.id
+block js
+ script(src='/plugins/DataTables/media/js/jquery.dataTables.js')
+ script(src='/plugins/DataTables/media/js/dataTables.bootstrap.min.js')
+ script(src='/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js')
+ script(src='/js/demo/table-manage-responsive.demo.min.js')
+ script.
+     $(document).ready(function() {
+       App.init();
+       TableManageResponsive.init();
+     });
