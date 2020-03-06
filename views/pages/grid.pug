@@ -26,21 +26,42 @@ block content
            th.text-nowrap Date
            th.text-nowrap Status
        tbody
-        each el in data
-         tr.odd.gradeX
-           td.f-s-600.text-inverse(width='1%') #{el.id}
-           td #{el.code}
-           td #{el.date}
-           td #{el.flag}
-//-    each el in data
-//-     p= el.id
+        //- each el in data
+        //-  tr.odd.gradeX
+        //-    td.f-s-600.text-inverse(width='1%') #{el.id}
+        //-    td #{el.code}
+        //-    td #{el.date}
+        //-    td #{el.flag}
+
 block js
  script(src='/plugins/DataTables/media/js/jquery.dataTables.js')
  script(src='/plugins/DataTables/media/js/dataTables.bootstrap.min.js')
  script(src='/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js')
- script(src='/js/demo/table-manage-responsive.demo.min.js')
  script.
      $(document).ready(function() {
+       let data = !{JSON.stringify(data)}
+      //-  console.log(data)
        App.init();
-       TableManageResponsive.init();
+       $('#data-table-responsive').DataTable({
+            responsive: true,
+            data:data,
+            columns:[
+              {"data":"id"},
+              {"data":"code"},
+              {"data":"date"},
+              {"data":"flag"}
+            ],
+            columnDefs: [
+            {
+                "render": function ( data, type, row ) {
+                   if(data === null)
+                   {
+                     return `<a href="#" class="btn btn-purple btn-sm">Belom Digunakan</a>`;
+                   }
+                },
+                "targets": 3
+            }
+            //- { "visible": false,  "targets": [ 3 ] }
+          ]
+        });
      });

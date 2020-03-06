@@ -1,10 +1,13 @@
 require('dotenv').config()
+const compression = require('compression');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var Sequelize = require('sequelize');
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var logger = require('morgan');
-var mysql = require('mysql');
 var reload = require('reload');
 
 var fs = require('fs');
@@ -14,6 +17,25 @@ var pageRouter = require('./routes/pages');
 // create a middlware that handles requests to `/eventstream`
 var app = express();
 reload(app)
+
+// compress all responses
+app.use(compression());
+
+// Setup Session squelize
+let myStore = new Sequelize({
+  dialect: "sqlite",
+  storage: "./db.development.sqlite"
+});
+
+app.use(session({
+  secret: 'keyboard cat',
+  store: new SequelizeStore({
+    db: myStore
+  }),
+  resave: false, // we support the touch method so per the express-session docs this should be set to false
+  proxy: true // if you do SSL outside of node.
+}))
+myStore.sync();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,0 +1,146 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+// [if !IE] <!
+html(lang='en')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title Barcode Reader | Scan QR
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no', name='viewport')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    // ================== BEGIN BASE CSS STYLE ==================
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700', rel='stylesheet')
+    link(href='/plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
+    link(href='/plugins/bootstrap/4.0.0/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/plugins/font-awesome/5.0/css/fontawesome-all.min.css', rel='stylesheet')
+    link(href='/plugins/ionicons/css/ionicons.min.css', rel='stylesheet')
+    link(href='/plugins/animate/animate.min.css', rel='stylesheet')
+    link(href='/plugins/gritter/css/jquery.gritter.css', rel='stylesheet')
+    link(href='/css/apple/style.min.css', rel='stylesheet')
+    link(href='/css/apple/style-responsive.min.css', rel='stylesheet')
+    link#theme(href='/css/apple/theme/default.css', rel='stylesheet')
+    // ================== END BASE CSS STYLE ==================
+    // ================== BEGIN BASE JS ==================
+    script(src='/plugins/pace/pace.min.js')
+    // ================== END BASE JS ==================
+  body.pace-top
+    // begin #page-loader
+    #page-loader.fade.show
+      span.spinner
+    // end #page-loader
+    // begin #page-container
+    #page-container.fade
+      
+      // begin login
+      .login.bg-black.animated.fadeInDown
+        // begin brand
+        .login-header
+          .brand
+            span.logo
+              i.ion-ios-cloud
+            b Scan Barcode
+            small Silahkan Login atau langsung ke halaman 
+             a(href="/pages") Home
+          .icon
+            i.fa.fa-lock
+        // end brand
+        // begin login-content
+        .login-content
+          form.margin-bottom-0(action='/', method='POST')
+            .form-group.m-b-20
+              input.form-control.form-control-lg.inverse-mode(type='text', placeholder='Email Address', required='', name='email')
+            .form-group.m-b-20
+              input.form-control.form-control-lg.inverse-mode(type='password', placeholder='Password', required='', name='password')
+            .login-buttons
+              button.btn.btn-success.btn-block.btn-lg(type='submit') Sign me in
+        // end login-content
+      // end login
+      // begin theme-panel
+      .theme-panel
+        a.theme-collapse-btn(href='javascript:;', data-click='theme-panel-expand')
+          i.ion-ios-cog
+        .theme-panel-content
+          h5.m-t-0 Color Theme
+          ul.theme-list.clearfix
+            li
+              a.bg-green(href='javascript:;', data-theme='green', data-theme-file='/css/apple/theme/green.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Green') &nbsp;
+            li
+              a.bg-red(href='javascript:;', data-theme='red', data-theme-file='/css/apple/theme/red.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Red') &nbsp;
+            li.active
+              a.bg-blue(href='javascript:;', data-theme='default', data-theme-file='/css/apple/theme/default.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Default') &nbsp;
+            li
+              a.bg-purple(href='javascript:;', data-theme='purple', data-theme-file='/css/apple/theme/purple.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Purple') &nbsp;
+            li
+              a.bg-orange(href='javascript:;', data-theme='orange', data-theme-file='/css/apple/theme/orange.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Orange') &nbsp;
+            li
+              a.bg-black(href='javascript:;', data-theme='black', data-theme-file='/css/apple/theme/black.css', data-click='theme-selector', data-toggle='tooltip', data-trigger='hover', data-container='body', data-title='Black') &nbsp;
+          .divider
+          .row.m-t-10
+            .col-md-5.control-label.double-line Header Styling
+            .col-md-7
+              select.form-control.form-control-sm(name='header-styling')
+                option(value='1') default
+                option(value='2') inverse
+          .row.m-t-10
+            .col-md-5.control-label Header
+            .col-md-7
+              select.form-control.form-control-sm(name='header-fixed')
+                option(value='1') fixed
+                option(value='2') default
+          .row.m-t-10
+            .col-md-5.control-label.double-line Sidebar Styling
+            .col-md-7
+              select.form-control.form-control-sm(name='sidebar-styling')
+                option(value='1') default
+                option(value='2') grid
+          .row.m-t-10
+            .col-md-5.control-label Sidebar
+            .col-md-7
+              select.form-control.form-control-sm(name='sidebar-fixed')
+                option(value='1') fixed
+                option(value='2') default
+          .row.m-t-10
+            .col-md-5.control-label.double-line Sidebar Gradient
+            .col-md-7
+              select.form-control.form-control-sm(name='content-gradient')
+                option(value='1') disabled
+                option(value='2') enabled
+          .row.m-t-10
+            .col-md-12
+              a.btn.btn-inverse.btn-block.btn-sm(href='javascript:;', data-click='reset-local-storage') Reset Local Storage
+      // end theme-panel
+    // end page container
+    // ================== BEGIN BASE JS ==================
+    script(src='/plugins/jquery/jquery-3.2.1.min.js')
+    script(src='/plugins/jquery-ui/jquery-ui.min.js')
+    script(src='/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js')
+    script(src='/plugins/gritter/js/jquery.gritter.js')
+    //if lt IE 9
+      script(src='/crossbrowserjs/html5shiv.js')
+      script(src='/crossbrowserjs/respond.min.js')
+      script(src='/crossbrowserjs/excanvas.min.js')
+    script(src='/plugins/slimscroll/jquery.slimscroll.min.js')
+    script(src='/plugins/js-cookie/js.cookie.js')
+    script(src='/js/theme/apple.min.js')
+    script(src='/js/apps.min.js')
+    // ================== END BASE JS ==================
+    script.
+      $(document).ready(function() {
+        let m = '!{message}'
+        console.log(m)
+        App.init();
+        if(m)
+        {
+            $.gritter.add({
+              title: 'Errorr.....',
+              text: m,
+              image: '/img/user/user-2.jpg',
+              sticky: true,
+              time: '3',
+              class_name: 'my-sticky-class'
+            });
+        }
+        
+      });

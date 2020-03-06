@@ -270,7 +270,7 @@ var handleDashboardGritterNotification = function() {
             $.gritter.add({
                 title: 'Welcome back, Admin!',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus lacus ut lectus rutrum placerat.',
-                image: '../assets/img/user/user-2.jpg',
+                image: '/img/user/user-2.jpg',
                 sticky: true,
                 time: '',
                 class_name: 'my-sticky-class'

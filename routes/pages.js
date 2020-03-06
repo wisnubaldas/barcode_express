@@ -8,7 +8,18 @@ let uploadController = require('../controller/uploadController');
 
 router.use(fileUpload());
 
-router.get('/',(req, res, next)=>{
+function checkSignIn(req, res, next){
+    if(req.session.user){
+       next();     //If session exists, proceed to page
+    } else {
+       var err = new Error("Anda belom login mas!");
+       console.log(req.session.user);
+    //    next(err);  //Error, trying to access unauthorized page!
+       res.redirect('/');
+    }
+}
+
+router.get('/',checkSignIn,(req, res, next)=>{
     res.render('pages/index',{ title: 'Dashboard','x':m.menus});
     // res.send('USER');
 })
@@ -20,12 +31,12 @@ router.get('/scanner',(req,res,next)=>{
 /* 
  *   Routing halaman upload excel
 */
-router.get('/upload',(req,res,next)=>{
+router.get('/upload',checkSignIn,(req,res,next)=>{
     let x = { title: 'Upload Barcode',title_body:'Upload Excel','x':m.menus}
     res.render('pages/upload',x);
 })
 // upload file excel
-router.post('/upload',(req,res,next)=>{
+router.post('/upload',checkSignIn,(req,res,next)=>{
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
       }
@@ -54,7 +65,7 @@ router.post('/upload',(req,res,next)=>{
 /*
 * Routing halaman List barcode 
 */
-router.get('/list',(req,res,next)=>{
+router.get('/list',checkSignIn,(req,res,next)=>{
     uploadController.grid((a)=>{
         res.render('pages/grid',{ title: 'Grid Data Barcode',title_body:'Tabel QR','x':m.menus,'data':a});
     })
