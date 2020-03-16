@@ -28,7 +28,7 @@ let UsbScanner = require('usb-barcode-scanner').UsbScanner;
 let scanner = new UsbScanner({
   // vendorId: 1155,
   // productId: 22352
-  path: '\\\\?\\hid#vid_1eab&pid_0003#6&22eab3bb&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\\kbd'
+  // path: '\\\\?\\hid#vid_1eab&pid_0003#6&22eab3bb&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\\kbd'
 });
 
 scanner.on('data', (data) => {
