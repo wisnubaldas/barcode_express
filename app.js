@@ -17,6 +17,38 @@ var pageRouter = require('./routes/pages');
 // create a middlware that handles requests to `/eventstream`
 var app = express();
 reload(app)
+var usb = require('usb')
+usb.on('attach',function (device) {
+  console.log(device)
+})
+let getDevices = require('usb-barcode-scanner').getDevices;
+console.log(getDevices());
+
+let UsbScanner = require('usb-barcode-scanner').UsbScanner;
+let scanner = new UsbScanner({
+  // vendorId: 1155,
+  // productId: 22352
+  path: '\\\\?\\hid#vid_1eab&pid_0003#6&22eab3bb&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\\kbd'
+});
+
+scanner.on('data', (data) => {
+  console.log(data);
+});
+
+scanner.startScanning();
+// const usbOptions = {
+// 	vendorId:  7851,
+// 	productId: 3
+// }
+// const scanner = new UsbScanner(usbOptions)
+// scanner.on('data', (data) => {
+// 	/// your code
+// 	console.log('hasil scan---->',data);
+// });
+
+// scanner.startScanning()
+
+  
 
 // compress all responses
 app.use(compression());
